@@ -33,7 +33,7 @@ export default function ShopPage() {
       </nav>
 
       <div className="max-w-7xl mx-auto px-6 pt-8 pb-16">
-        {/* Mobile Category Scroll - Clean horizontal pills */}
+        {/* Mobile Category Navigation - Horizontal scroll */}
         <div className="lg:hidden mb-6">
           <div className="flex gap-2 overflow-x-auto pb-2">
             {categories.map(cat => (
@@ -54,7 +54,7 @@ export default function ShopPage() {
             <div className="text-xs tracking-[1.5px] text-gray-500 mb-3 px-1">CATEGORIES</div>
             <div className="flex flex-col gap-1">
               {categories.map(cat => (
-                <button key={cat} onClick={() => setSelectedCategory(cat)} className={`text-left px-4 py-2.5 rounded-2xl text-sm ${selectedCategory === cat ? 'bg-yellow-100 font-medium' : 'hover:bg-gray-50'}`}>
+                <button key={cat} onClick={() => setSelectedCategory(cat)} className={`text-left px-4 py-2.5 rounded-2xl text-sm mb-1 transition-all ${selectedCategory === cat ? 'bg-yellow-100 font-medium' : 'hover:bg-gray-50'}`}>
                   {cat}
                 </button>
               ))}
@@ -65,7 +65,7 @@ export default function ShopPage() {
             <div className="flex justify-between items-end mb-6">
               <div>
                 <h1 className="text-4xl font-semibold tracking-tighter">All Products</h1>
-                <p className="text-sm text-gray-500 mt-1">{filtered.length} items</p>
+                <p className="text-sm text-gray-500 mt-1">Showing {filtered.length} items</p>
               </div>
               <select className="text-sm border rounded-2xl px-4 py-2">
                 <option>Most popular</option>

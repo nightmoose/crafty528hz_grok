@@ -4,13 +4,12 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Professional Product Cards */
 .product-card {
   background: white;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid #f0f0f0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   transition: all 0.2s ease;
 }
 
@@ -29,7 +28,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* Pricing */
 .price-original {
   text-decoration: line-through;
   color: #9ca3af;
@@ -42,15 +40,9 @@ body {
   font-size: 18px;
 }
 
-/* Buttons */
 .btn-yellow {
   background: #FFEB3B;
   color: #111827;
   font-weight: 600;
   border-radius: 14px;
-  transition: all 0.2s ease;
-}
-
-.btn-yellow:hover {
-  background: #facc15;
 }
