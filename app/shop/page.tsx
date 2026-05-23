@@ -39,7 +39,7 @@ export default function ShopPage() {
       </nav>
 
       <div className="max-w-7xl mx-auto px-6 pt-8 pb-16">
-        {/* Mobile Category Navigation */}
+        {/* Mobile Category Navigation - Horizontal pills */}
         <div className="lg:hidden mb-6">
           <div className="flex gap-2 overflow-x-auto pb-2">
             {categories.map(cat => (
