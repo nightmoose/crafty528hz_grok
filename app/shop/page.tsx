@@ -38,25 +38,13 @@ export default function ShopPage() {
         </div>
       </nav>
 
-      {/* Colorful logo header matching screenshot vibe */}
-      <div className="bg-[#FFEB3B] py-8 px-6 text-center">
+      {/* Simplified colorful header - more robust */}
+      <div className="bg-yellow-300 py-6 px-6 text-center">
         <div className="max-w-2xl mx-auto">
-          <div className="text-[42px] md:text-[56px] font-black tracking-[-2px] leading-none"
-               style={{ 
-                 color: '#FF2D95', 
-                 WebkitTextStroke: '2.5px #E11D48',
-                 textShadow: '0 2px 0 #fff'
-               }}>
-            crafty
+          <div className="text-5xl md:text-6xl font-black tracking-tighter text-pink-600">
+            crafty 528hz
           </div>
-          <div className="text-[38px] md:text-[52px] font-black tracking-[-2px] -mt-3"
-               style={{ 
-                 color: '#FF2D95', 
-                 WebkitTextStroke: '2.5px #E11D48'
-               }}>
-            528hz
-          </div>
-          <p className="text-[#1F2937] text-sm mt-1 tracking-[3px] font-medium">UPCYCLED • COLORFUL • ONE OF A KIND</p>
+          <p className="text-sm text-gray-700 mt-1 tracking-[2px] font-medium">UPCYCLED • COLORFUL • ONE OF A KIND</p>
         </div>
       </div>
 
@@ -68,7 +56,7 @@ export default function ShopPage() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2 rounded-full text-sm border transition-all whitespace-nowrap ${selectedCategory === cat ? 'bg-yellow-300 border-yellow-300 font-semibold' : 'bg-white border-gray-200'}`}
+                className={`px-5 py-2 rounded-full text-sm border transition-all whitespace-nowrap flex-shrink-0 ${selectedCategory === cat ? 'bg-yellow-300 border-yellow-400 font-semibold' : 'bg-white border-gray-200'}`}
               >
                 {cat}
               </button>
