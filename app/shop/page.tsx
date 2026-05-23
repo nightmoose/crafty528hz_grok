@@ -11,7 +11,7 @@ export default function ShopPage() {
   const [cartOpen, setCartOpen] = useState(false)
   const [cart, setCart] = useState<any[]>([])
 
-  const categories = ['All', 'Accessories', 'Clothing', 'Earrings', 'April Drop']
+  const categories = ['All', 'Accessories', 'Clothing', 'Earrings']
 
   const filtered = selectedCategory === 'All' 
     ? products 
@@ -28,35 +28,36 @@ export default function ShopPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Top Nav */}
       <nav className="border-b sticky top-0 z-50 bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
           <a href="/" className="font-bold text-2xl tracking-tighter">Crafty 528 Hz</a>
-          <button onClick={() => setCartOpen(true)} className="flex items-center gap-2 px-5 py-2.5 rounded-2xl border text-sm">
+          <button onClick={() => setCartOpen(true)} className="flex items-center gap-2 px-4 py-2 rounded-2xl border text-sm">
             <ShoppingBag size={18} />
             <span>Cart ({cart.length})</span>
           </button>
         </div>
       </nav>
 
-      {/* Simplified colorful header - more robust */}
-      <div className="bg-yellow-300 py-6 px-6 text-center">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-5xl md:text-6xl font-black tracking-tighter text-pink-600">
+      {/* Colorful Header - matches screenshot vibe */}
+      <div className="bg-yellow-300 py-8 px-6 text-center">
+        <div className="max-w-xl mx-auto">
+          <div className="text-[42px] font-black tracking-[-1.5px] text-[#E11D48]">
             crafty 528hz
           </div>
-          <p className="text-sm text-gray-700 mt-1 tracking-[2px] font-medium">UPCYCLED • COLORFUL • ONE OF A KIND</p>
+          <p className="text-xs tracking-[3px] text-gray-700 mt-1 font-medium">UPCYCLED • COLORFUL • ONE OF A KIND</p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-8 pb-16">
-        {/* Mobile Category Navigation - Horizontal scroll pills */}
-        <div className="lg:hidden mb-6">
-          <div className="flex gap-2 overflow-x-auto pb-2">
+      <div className="max-w-7xl mx-auto px-5 pt-6 pb-20">
+        {/* Mobile Category Pills */}
+        <div className="lg:hidden mb-5">
+          <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2 rounded-full text-sm border transition-all whitespace-nowrap flex-shrink-0 ${selectedCategory === cat ? 'bg-yellow-300 border-yellow-400 font-semibold' : 'bg-white border-gray-200'}`}
+                className={`px-5 py-2 rounded-full text-sm border whitespace-nowrap flex-shrink-0 transition-all ${selectedCategory === cat ? 'bg-yellow-300 border-yellow-400 font-semibold' : 'bg-white border-gray-200'}`}
               >
                 {cat}
               </button>
@@ -64,36 +65,17 @@ export default function ShopPage() {
           </div>
         </div>
 
-        <div className="flex gap-8">
-          {/* Desktop Sidebar */}
-          <div className="w-56 hidden lg:block">
-            <div className="text-xs tracking-[1.5px] text-gray-500 mb-3 px-1">CATEGORIES</div>
-            <div className="flex flex-col gap-1">
-              {categories.map(cat => (
-                <button key={cat} onClick={() => setSelectedCategory(cat)} className={`text-left px-4 py-2.5 rounded-2xl text-sm mb-1 transition-all ${selectedCategory === cat ? 'bg-yellow-100 font-medium' : 'hover:bg-gray-50'}`}>
-                  {cat}
-                </button>
-              ))}
-            </div>
+        <div className="flex justify-between items-baseline mb-4">
+          <div>
+            <h1 className="text-3xl font-semibold tracking-tighter">All Products</h1>
+            <p className="text-sm text-gray-500">{filtered.length} items</p>
           </div>
+        </div>
 
-          <div className="flex-1">
-            <div className="flex justify-between items-end mb-6">
-              <div>
-                <h1 className="text-4xl font-semibold tracking-tighter">All Products</h1>
-                <p className="text-sm text-gray-500 mt-1">Showing {filtered.length} items</p>
-              </div>
-              <select className="text-sm border rounded-2xl px-4 py-2">
-                <option>Most popular</option>
-              </select>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
-              {filtered.map((product, i) => (
-                <ProductCard key={i} product={product} onAddToCart={() => addToCart(product)} />
-              ))}
-            </div>
-          </div>
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+          {filtered.map((product) => (
+            <ProductCard key={product.id} product={product} onAddToCart={() => addToCart(product)} />
+          ))}
         </div>
       </div>
 
