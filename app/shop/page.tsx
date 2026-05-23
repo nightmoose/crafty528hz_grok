@@ -38,6 +38,28 @@ export default function ShopPage() {
         </div>
       </nav>
 
+      {/* Colorful logo header matching screenshot vibe */}
+      <div className="bg-[#FFEB3B] py-8 px-6 text-center">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-[42px] md:text-[56px] font-black tracking-[-2px] leading-none"
+               style={{ 
+                 color: '#FF2D95', 
+                 WebkitTextStroke: '2.5px #E11D48',
+                 textShadow: '0 2px 0 #fff'
+               }}>
+            crafty
+          </div>
+          <div className="text-[38px] md:text-[52px] font-black tracking-[-2px] -mt-3"
+               style={{ 
+                 color: '#FF2D95', 
+                 WebkitTextStroke: '2.5px #E11D48'
+               }}>
+            528hz
+          </div>
+          <p className="text-[#1F2937] text-sm mt-1 tracking-[3px] font-medium">UPCYCLED • COLORFUL • ONE OF A KIND</p>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 pt-8 pb-16">
         {/* Mobile Category Navigation - Horizontal scroll pills */}
         <div className="lg:hidden mb-6">
