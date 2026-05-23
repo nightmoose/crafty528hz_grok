@@ -2,14 +2,15 @@ import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-11-20.acacia',
+  // Using latest stable version supported by the installed stripe package
+  apiVersion: '2025-02-24.acacia',
 })
 
 export async function POST(request: Request) {
   try {
     const { items } = await request.json()
 
-    // For now this is a placeholder. We'll expand it with real line items
+    // TODO: Build proper line_items from cart
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
           price_data: {
             currency: 'usd',
             product_data: { name: 'Crafty 528 Hz Order' },
-            unit_amount: 5000, // placeholder
+            unit_amount: 5000,
           },
           quantity: 1,
         },

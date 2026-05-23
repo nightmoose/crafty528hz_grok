@@ -2,7 +2,6 @@
 
 import { Product } from '../lib/products'
 import { X, CreditCard } from 'lucide-react'
-import { loadStripe } from '@stripe/stripe-js' // We'll add this properly later
 
 interface CartDrawerProps {
   isOpen: boolean
@@ -15,10 +14,24 @@ export function CartDrawer({ isOpen, onClose, cart, onRemove }: CartDrawerProps)
   const total = cart.reduce((sum, item) => sum + item.price, 0)
 
   const handleCheckout = async () => {
-    // Placeholder for Stripe Checkout
-    // In next step we'll connect real Stripe
-    alert(`Checkout flow ready! Total: $${total}\n\nWe'll connect real Stripe + Supabase in the next push.`)
-    // TODO: Call API route to create Stripe Checkout session
+    // For now this calls the API route (placeholder)
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: cart }),
+      })
+
+      const data = await res.json()
+
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        alert('Checkout error: ' + (data.error || 'Unknown error'))
+      }
+    } catch (err) {
+      alert('Failed to start checkout')
+    }
   }
 
   if (!isOpen) return null
