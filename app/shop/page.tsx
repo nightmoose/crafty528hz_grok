@@ -17,18 +17,12 @@ export default function ShopPage() {
     ? products 
     : products.filter(p => p.category === selectedCategory)
 
-  const addToCart = (p: any) => {
-    setCart([...cart, p])
-    setCartOpen(true)
-  }
-
-  const removeFromCart = (index: number) => {
-    setCart(cart.filter((_, i) => i !== index))
-  }
+  const addToCart = (p: any) => { setCart([...cart, p]); setCartOpen(true) }
+  const removeFromCart = (i: number) => setCart(cart.filter((_, idx) => idx !== i))
 
   return (
     <div className="min-h-screen bg-white">
-      <nav className="border-b bg-white sticky top-0 z-50">
+      <nav className="border-b sticky top-0 z-50 bg-white">
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
           <a href="/" className="font-bold text-2xl tracking-tighter">Crafty 528 Hz</a>
           <button onClick={() => setCartOpen(true)} className="flex items-center gap-2 px-5 py-2.5 rounded-2xl border text-sm">
@@ -39,9 +33,9 @@ export default function ShopPage() {
       </nav>
 
       <div className="max-w-7xl mx-auto px-6 pt-8 pb-16">
-        {/* Mobile-first category navigation */}
+        {/* Mobile Category Scroll - Clean horizontal pills */}
         <div className="lg:hidden mb-6">
-          <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
+          <div className="flex gap-2 overflow-x-auto pb-2">
             {categories.map(cat => (
               <button
                 key={cat}
@@ -56,15 +50,11 @@ export default function ShopPage() {
 
         <div className="flex gap-8">
           {/* Desktop Sidebar */}
-          <div className="w-56 hidden lg:block pt-1">
+          <div className="w-56 hidden lg:block">
             <div className="text-xs tracking-[1.5px] text-gray-500 mb-3 px-1">CATEGORIES</div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
               {categories.map(cat => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`text-left px-4 py-2.5 rounded-2xl text-sm mb-1 transition-all ${selectedCategory === cat ? 'bg-yellow-100 font-medium' : 'hover:bg-gray-50'}`}
-                >
+                <button key={cat} onClick={() => setSelectedCategory(cat)} className={`text-left px-4 py-2.5 rounded-2xl text-sm ${selectedCategory === cat ? 'bg-yellow-100 font-medium' : 'hover:bg-gray-50'}`}>
                   {cat}
                 </button>
               ))}
