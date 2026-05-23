@@ -1,16 +1,16 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  // Using latest stable version supported by the installed stripe package
-  apiVersion: '2025-02-24.acacia',
-})
-
 export async function POST(request: Request) {
+  // Stripe is instantiated inside the handler so it doesn't run during build
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: '2025-02-24.acacia',
+  })
+
   try {
     const { items } = await request.json()
 
-    // TODO: Build proper line_items from cart
+    // TODO: Replace with real cart line items
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -30,6 +30,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ url: session.url })
   } catch (error: any) {
+    console.error(error)
     return NextResponse.json({ error: error.message }, { status: 500 })
   }
 }
