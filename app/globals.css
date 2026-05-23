@@ -6,44 +6,63 @@
   --lime: #C6FF00;
   --pink: #FF2D95;
   --red-sale: #E11D48;
-  --dark-text: #1F2937;
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Bright, fun buttons matching original */
+/* Modern Product Cards */
+.product-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #f1f1f1;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border-color: #e5e5e5;
+}
+
+.image-placeholder {
+  background: linear-gradient(145deg, #f8f8f8, #f1f1f1);
+  position: relative;
+}
+
+.image-placeholder::after {
+  content: 'Image';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #aaa;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Sale styling */
+.price-original {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.price-sale {
+  color: #e11d48;
+  font-weight: 600;
+}
+
+/* Yellow buttons */
 .btn-yellow {
   background-color: #FFEB3B;
-  color: #1F2937;
+  color: #111827;
   font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .btn-yellow:hover {
-  background-color: #FFE135;
-  transform: translateY(-1px);
-}
-
-/* Sale price styling */
-.price-original {
-  text-decoration: line-through;
-  color: #9CA3AF;
-  font-size: 0.9em;
-}
-
-.price-sale {
-  color: #E11D48;
-  font-weight: 600;
-}
-
-/* Product card improvements */
-.product-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  background-color: #facc15;
 }

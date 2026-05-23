@@ -9,36 +9,30 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, onAddToCart }: ProductCardProps) {
-  // Support sale pricing
   const hasSale = product.originalPrice && product.originalPrice > product.price
 
   return (
     <div className="product-card group">
-      <div className="aspect-[4/3] bg-gray-100 rounded-2xl mb-4 overflow-hidden relative">
-        {/* Placeholder for real images - replace later */}
-        <div className="absolute inset-0 flex items-center justify-center text-6xl text-gray-300">
-          {product.category[0]}
-        </div>
-        {hasSale && (
-          <div className="absolute top-3 right-3 bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium">
-            Sale
-          </div>
-        )}
+      {/* Image Placeholder Area */}
+      <div className="image-placeholder aspect-[4/3] w-full flex items-center justify-center">
+        {/* This will be replaced with real images later */}
       </div>
 
-      <div>
-        <h3 className="font-medium text-lg tracking-tight pr-4 mb-1">{product.name}</h3>
-        
-        <div className="flex items-baseline gap-2 mb-3">
+      <div className="p-5">
+        <h3 className="font-semibold text-[15px] tracking-tight mb-2 pr-2 leading-tight">
+          {product.name}
+        </h3>
+
+        <div className="flex items-baseline gap-2 mb-4">
           {hasSale && (
-            <span className="price-original">${product.originalPrice}</span>
+            <span className="price-original text-sm">${product.originalPrice}</span>
           )}
           <span className="price-sale text-xl">${product.price}</span>
         </div>
 
         <button 
           onClick={onAddToCart}
-          className="btn-yellow w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2"
+          className="btn-yellow w-full py-[13px] rounded-xl text-sm font-semibold flex items-center justify-center gap-2 active:scale-[0.985] transition-transform"
         >
           <ShoppingCart size={16} />
           Add to Cart
