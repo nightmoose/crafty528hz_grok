@@ -3,64 +3,57 @@ export interface Product {
   name: string
   description: string
   price: number
+  originalPrice?: number
   category: string
 }
 
 export const products: Product[] = [
   {
     id: 1,
-    name: "528 Hz Heart Pendant",
-    description: "Sterling silver pendant tuned to the love frequency. A daily reminder of alignment.",
-    price: 68,
-    category: "Pendants"
+    name: "Be Happy Hoodie",
+    description: "Black sweatshirt with fun patches and bead details.",
+    price: 120,
+    originalPrice: 160,
+    category: "Clothing"
   },
   {
     id: 2,
-    name: "Rose Quartz Necklace",
-    description: "Delicate chain with natural rose quartz. Opens the heart chakra.",
-    price: 52,
-    category: "Necklaces"
+    name: "The Hamsa Hand Dreamer Hoodie",
+    description: "Purple and pink upcycled hoodie with star patches.",
+    price: 200,
+    originalPrice: 225,
+    category: "Clothing"
   },
   {
     id: 3,
-    name: "Amethyst Harmony Bracelet",
-    description: "Hand-knotted amethyst beads for calm and intuition.",
-    price: 45,
-    category: "Bracelets"
+    name: "Neon Fairy Prom Dress Upcycle",
+    description: "White and lime green upcycled prom dress.",
+    price: 50,
+    originalPrice: 125,
+    category: "Clothing"
   },
   {
     id: 4,
-    name: "Golden Frequency Earrings",
-    description: "Subtle gold-plated hoops carrying 528 Hz intention.",
-    price: 38,
-    category: "Earrings"
+    name: "Purple Haze Aura Quartz Necklace",
+    description: "Crystal point necklace with purple aura quartz.",
+    price: 120,
+    originalPrice: 140,
+    category: "Accessories"
   },
   {
     id: 5,
-    name: "Lapis Lazuli Wisdom Necklace",
-    description: "Deep blue lapis with gold accents. For truth and clarity.",
-    price: 78,
-    category: "Necklaces"
+    name: "Cosmic Necklace",
+    description: "Gold chain necklace with crystal pendant.",
+    price: 90,
+    originalPrice: 120,
+    category: "Accessories"
   },
   {
     id: 6,
-    name: "Moonstone Glow Bracelet",
-    description: "Iridescent moonstone for new beginnings and feminine energy.",
-    price: 49,
-    category: "Bracelets"
-  },
-  {
-    id: 7,
-    name: "Crystal Point Earrings",
-    description: "Raw crystal points on delicate chains. Grounding and elevating.",
-    price: 42,
-    category: "Earrings"
-  },
-  {
-    id: 8,
-    name: "Infinite Love Ring",
-    description: "Simple band engraved with the 528 Hz symbol. Everyday alignment.",
-    price: 65,
-    category: "Pendants" // can change to Rings later
+    name: "Upcycled Hoodie Set",
+    description: "Tie-dye hoodie and pants set with patches.",
+    price: 200,
+    originalPrice: 275,
+    category: "Clothing"
   }
 ]
