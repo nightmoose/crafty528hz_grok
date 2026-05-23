@@ -39,14 +39,14 @@ export default function ShopPage() {
       </nav>
 
       <div className="max-w-7xl mx-auto px-6 pt-8 pb-16">
-        {/* Mobile Category Navigation - Proper horizontal scroll */}
+        {/* Mobile Category Navigation */}
         <div className="lg:hidden mb-6">
-          <div className="flex gap-2 overflow-x-auto pb-2 snap-x">
+          <div className="flex gap-2 overflow-x-auto pb-2">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2 rounded-full text-sm border transition-all whitespace-nowrap snap-start ${selectedCategory === cat ? 'bg-yellow-300 border-yellow-300 font-semibold' : 'bg-white border-gray-200'}`}
+                className={`px-5 py-2 rounded-full text-sm border transition-all whitespace-nowrap ${selectedCategory === cat ? 'bg-yellow-300 border-yellow-300 font-semibold' : 'bg-white border-gray-200'}`}
               >
                 {cat}
               </button>
